@@ -1,19 +1,26 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {HashRouter as Router, Link, Route} from 'react-router-dom'
-import VertifactionComponent from './vertifactionPage/vertifaction.js'
+import { HashRouter as Router, Link, Route, useHistory} from 'react-router-dom'
+import Form from './formPage/form.js'
 import HomeComponent from './homePage/home.js'
+import state from './state.js'
 
 function App() {
-  return (
-    <div id="outer">
-      <Router id="inner">
-        <Route path="/vertifaction" component={VertifactionComponent}/>
-        <Route path="/home" component={HomeComponent}/>
-      </Router>
-    </div>
-  );
+
+	if(state.auth == true){
+		return(
+			<div id="outer">
+				<HomeComponent/>
+			</div>
+		)
+	}else{
+		return(
+			<div id="outer">
+				<Form/>
+			</div>
+		)
+	}
 }
 
 export default App;

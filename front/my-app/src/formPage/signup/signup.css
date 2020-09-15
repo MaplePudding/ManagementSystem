@@ -1,0 +1,123 @@
+#signupCom{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#signupForm{
+    height: 80%;
+}
+
+#signupForm{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+    color: white;
+    font-size: 1.5em;
+}
+
+#signupForm input{
+    width: 80%;
+    height: 15%;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #61DAFB;
+    color: #61DAFB;
+    font-size: 1em;
+}
+
+#signupForm input::-webkit-input-placeholder{
+    color: #61DAFB;
+}
+
+#signupButton{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 15%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #61DAFB;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+#signupButton span:nth-child(1){
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 0;
+    height: 7%;
+    background: #61DAFB;
+    transition: width 0.5s;
+    transition-delay: 1s;
+}
+
+#signupButton span:nth-child(2){
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 1.5%;
+    height: 0;
+    background: #61DAFB;
+    transition: height 0.25s;
+    transition-delay: 0.75s;
+}
+
+#signupButton span:nth-child(3){
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 7%;
+    width: 0;
+    background: #61DAFB;
+    transition: width 0.5s;
+    transition-delay: 0.25s;
+}
+
+#signupButton span:nth-child(4){
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 1.5%;
+    height: 0;
+    background: #61DAFB;
+    transition: height 0.25s;
+}
+
+#signupButton:hover span:nth-child(1){
+    transition: width 0.5s;
+    width: 100%;
+}
+
+#signupButton:hover span:nth-child(2){
+    transition: height 0.25s;
+    transition-delay: 0.5s;
+    height: 100%;
+}
+
+#signupButton:hover span:nth-child(3){
+    transition: width 0.5s;
+    transition-delay: 0.75s;
+    width: 100%;
+}
+
+#signupButton:hover span:nth-child(4){
+    transition: height 0.25s;
+    transition-delay: 1.25s;
+    height: 100%;
+}
