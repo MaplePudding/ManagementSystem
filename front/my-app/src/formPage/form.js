@@ -1,5 +1,5 @@
 import React , {useState}from 'react'
-import { HashRouter as Router, Link, Route, useHistory, withRouter } from 'react-router-dom'
+import { HashRouter as Router, Link, Redirect, Route, useHistory, withRouter } from 'react-router-dom'
 import LoginComponent from './login/login.js'
 import SignupComponent from './signup/signup.js'
 import formImgSrc from '../logo.png'
@@ -21,7 +21,10 @@ function FormComponent(props) {
 					<Link to='/form/login'><div onClick={() => { changeFormOptionStyle('right') }} className={formOptionIsChecked === 'right' ? 'isChecked' : 'unChecked'}>Login</div></Link>
 				</div>
 				<Route path='/form/signup' component={SignupComponent}></Route>
-				<Route path='/form/login' component={LoginComponent}></Route>
+				<Route path='/form/login' render= {()=><LoginComponent setFlag={props.setFlag}/>}></Route>
+				<Route path='/form'>
+					<Redirect to='/form/login'/>
+				</Route>
 			</Router>
 		</div>
 	)

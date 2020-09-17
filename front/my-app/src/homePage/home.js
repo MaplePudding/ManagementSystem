@@ -5,6 +5,15 @@ function HomeComponent(){
     return(
         <div id="outer">
             Home
+            Home
+            Home
+            Home
+            Home
+            Home
+            Home
+            Home
+            Home
+            Home
         </div>
     )
 }
