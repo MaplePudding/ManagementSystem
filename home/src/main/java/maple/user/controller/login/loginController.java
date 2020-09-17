@@ -19,16 +19,12 @@ public class loginController {
     @RequestMapping(value="/login", method = RequestMethod.GET, params = {"userName", "password"})
     @ResponseBody
     public LoginResponseObj checkLoginInfo(String userName, String password){
+        System.out.println(userName);
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         JdbcTemplate jdbcTemplate = (JdbcTemplate) applicationContext.getBean("quickJdbc");
         List<UserInfo> userInfoList = jdbcTemplate.query("select * from student where userName = ?", new BeanPropertyRowMapper<UserInfo>(UserInfo.class), userName);
         for(UserInfo userInfoItem : userInfoList){
-            System.out.println(userInfoItem.getUserName());
-            System.out.println(userName);
-            System.out.println(userInfoItem.getPassword());
-            System.out.println(password);
             if(userInfoItem.getUserName().equals(userName) && userInfoItem.getPassword().equals(password)){
-                System.out.println(1);
                 LoginResponseObj loginResponseObj = new LoginResponseObj();
                 loginResponseObj.setLoginResponseRes("LoginSuccess");
                 return loginResponseObj;

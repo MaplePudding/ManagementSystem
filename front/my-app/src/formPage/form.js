@@ -6,7 +6,7 @@ import formImgSrc from '../logo.png'
 import './form.css'
 
 function FormComponent(props) {
-	let [formOptionIsChecked, setFormOptionIsChecked] = useState('left');
+	let [formOptionIsChecked, setFormOptionIsChecked] = useState('right');
 
 	function changeFormOptionStyle(styleStr) {
 		setFormOptionIsChecked(styleStr)
@@ -21,7 +21,7 @@ function FormComponent(props) {
 					<Link to='/form/login'><div onClick={() => { changeFormOptionStyle('right') }} className={formOptionIsChecked === 'right' ? 'isChecked' : 'unChecked'}>Login</div></Link>
 				</div>
 				<Route path='/form/signup' component={SignupComponent}></Route>
-				<Route path='/form/login' render= {()=><LoginComponent setFlag={props.setFlag}/>}></Route>
+				<Route path='/form/login' render={() => <LoginComponent setFlag={props.setFlag}/>}></Route>
 				<Route path='/form'>
 					<Redirect to='/form/login'/>
 				</Route>

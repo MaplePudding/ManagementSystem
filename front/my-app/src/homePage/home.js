@@ -1,7 +1,7 @@
 import {HashRouter as Router, Link, Route} from 'react-router-dom'
 import React from 'react'
 
-function HomeComponent(){
+function HomeComponent(props){
     return(
         <div id="outer">
             Home

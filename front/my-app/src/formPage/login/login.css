@@ -7,7 +7,7 @@
     align-items: center;
 }
 
-#loginForm{
+#loginCom{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
     font-size: 1.5em;
 }
 
-#loginForm input{
+#loginCom input{
     width: 80%;
     height: 15%;
     background: transparent;
@@ -26,10 +26,10 @@
     border: none;
     border-bottom: 2px solid #61DAFB;
     color: #61DAFB;
-    font-size: 1em;
+    font-size: 0.7em;
 }
 
-#loginForm input::-webkit-input-placeholder{
+#loginCom input::-webkit-input-placeholder{
     color: #61DAFB;
 }
 
@@ -118,5 +118,18 @@
     height: 100%;
 }
 
+.errorMessageHidden{
+    visibility: hidden;
+}
+
+.errorMessageShow{
+    visibility: visible;
+}
+
+.errorMessage{
+    font-size: 0.5em;
+    color: red;
+
+}
 
 

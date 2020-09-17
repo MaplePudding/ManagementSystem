@@ -26,10 +26,12 @@ import userEvent from '@testing-library/user-event';
 }
  */
 
-function App(){	
+function App(props){
+
 		let [reRenderFlag, setFlag] = useState(0);
+
 		if(reRenderFlag == 1){
-			
+			console.log(2)
 			return(
 				<div id="outer">
 					<Router>
@@ -43,7 +45,7 @@ function App(){
 				<div id="outer">
 					<Router>
 						<Redirect to='/form'/>
-						<Route path='/form' render={()=> <FormComponent setFlag={setFlag}/>}/>
+						<Route path='/form' render={ props => <FormComponent setFlag={setFlag}/>}/>
 					</Router>
 				</div>
 			)
