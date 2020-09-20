@@ -21,7 +21,7 @@ function FormComponent(props) {
 					<Link to='/form/login'><div onClick={() => { changeFormOptionStyle('right') }} className={formOptionIsChecked === 'right' ? 'isChecked' : 'unChecked'}>Login</div></Link>
 				</div>
 				<Route path='/form/signup' render={() => <SignupComponent setFlag={props.setFlag}/>}></Route>
-				<Route path='/form/login' render={() => <LoginComponent setFlag={props.setFlag}/>}></Route>
+				<Route path='/form/login' render={() => <LoginComponent setFlag={props.setFlag} />}></Route>
 				<Route path='/form'>
 					<Redirect to='/form/login'/>
 				</Route>

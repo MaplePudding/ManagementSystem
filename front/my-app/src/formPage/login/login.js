@@ -2,6 +2,7 @@ import React,{useState, useRef} from 'react'
 import './login.css'
 import Axios from 'axios'
 import ErrorMessageCom from './errorMessage.js'
+import userState from '../../userState'
 
 function LoginComponent(props) {
 
@@ -15,6 +16,8 @@ function LoginComponent(props) {
     function sendLoginInfo(){
         Axios.get(`/api/login?userName=${userName}&password=${password}&position=${position}`).then((res) =>{
             if(res.data.loginResponseRes === 'LoginSuccess'){
+                userState.setIdenty(position)
+                userState.setUserName(userName)
                 props.setFlag(1);
             }else{
                 if(res.data.loginResponseRes === 'Empty'){

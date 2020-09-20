@@ -37,7 +37,7 @@ public class SignupController {
                     return signupResponseObj;
                 }
             }
-            jdbcTemplate.execute("insert into student values(" + userName + "," + password + ")");
+            jdbcTemplate.execute("insert into student(userName, password) values(" + userName + "," + password + ")");
             signupResponseObj.setSignupResponseRes("SignupSuccess");
             return signupResponseObj;
         }else{

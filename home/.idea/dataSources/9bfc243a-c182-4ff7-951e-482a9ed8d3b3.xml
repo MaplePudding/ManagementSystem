@@ -921,12 +921,35 @@ SELECT|sys.sys_config:null
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="288" parent="285" name="student_userName_uindex">
+    <column id="288" parent="285" name="email">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <DefaultExpression>&apos;12345@gmail.com&apos;</DefaultExpression>
+    </column>
+    <column id="289" parent="285" name="grade">
+      <Position>4</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;First&apos;</DefaultExpression>
+    </column>
+    <column id="290" parent="285" name="sex">
+      <Position>5</Position>
+      <DataType>char(1)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;F&apos;</DefaultExpression>
+    </column>
+    <column id="291" parent="285" name="phoneNumber">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;12345&apos;</DefaultExpression>
+    </column>
+    <index id="292" parent="285" name="student_userName_uindex">
       <ColNames>userName</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="289" parent="285" name="student_userName_uindex">
+    <key id="293" parent="285" name="student_userName_uindex">
       <ColNames>userName</ColNames>
       <UnderlyingIndexName>student_userName_uindex</UnderlyingIndexName>
     </key>

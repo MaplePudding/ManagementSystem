@@ -8,8 +8,7 @@ public class UserInfo {
     private String sex;
     private String phoneNumber;
     private String level;
-    private int age;
-    private String identity;
+    private String age;
 
     public String getSex() {
         return sex;
@@ -59,19 +58,11 @@ public class UserInfo {
         this.password = password;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
-    }
-
-    public String getIdentity() {
-        return identity;
-    }
-
-    public void setIdentity(String identity) {
-        this.identity = identity;
     }
 }

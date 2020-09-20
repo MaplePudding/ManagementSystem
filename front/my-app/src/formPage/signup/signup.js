@@ -34,7 +34,6 @@ function SignupComponent(props) {
 
 
     function sendSignupInfo(){
-        console.log(typeof userName)
         Axios.post(`/api/signup?userName=${userName}&password=${password}&email=${email}&position=${position}`).then((res) =>{
             if(res.data.signupResponseRes === 'SignupSuccess'){
                 userNameEmptyFlag = false;

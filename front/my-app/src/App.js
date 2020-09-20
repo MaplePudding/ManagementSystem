@@ -29,14 +29,15 @@ import userEvent from '@testing-library/user-event';
 function App(props){
 
 		let [reRenderFlag, setFlag] = useState(0);
+		let identy = 'student';
+		let userName = '';
 
 		if(reRenderFlag == 1){
-			console.log(2)
 			return(
 				<div id="outer">
 					<Router>
 						<Redirect to='/home'/>
-						<Route path='/home' component={HomeComponent}/>
+						<Route path='/home' render = { props => <HomeComponent identy={identy} userName={userName}/>}/>
 					</Router>
 				</div>
 			)
@@ -45,7 +46,7 @@ function App(props){
 				<div id="outer">
 					<Router>
 						<Redirect to='/form'/>
-						<Route path='/form' render={ props => <FormComponent setFlag={setFlag}/>}/>
+						<Route path='/form' render={ props => <FormComponent setFlag={setFlag} />}/>
 					</Router>
 				</div>
 			)
