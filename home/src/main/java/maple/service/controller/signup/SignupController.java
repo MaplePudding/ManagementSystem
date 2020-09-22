@@ -42,13 +42,14 @@ public class SignupController {
             return signupResponseObj;
         }else{
             List<UserInfo> userInfoList  = jdbcTemplate.query("select userName from teacher where userName = ?", new BeanPropertyRowMapper<UserInfo>(UserInfo.class), userName);
+            System.out.println(userName);
             for(UserInfo userInfoItem : userInfoList){
                 if(userInfoItem.getUserName().equals(userName)){
                     signupResponseObj.setSignupResponseRes("Exists");
                     return signupResponseObj;
                 }
             }
-            jdbcTemplate.execute("insert into teacher values(" + userName + "," + password + ")");
+            jdbcTemplate.execute("insert into teacher(userName, password) values(" + userName + "," + password + ")");
             signupResponseObj.setSignupResponseRes("SignupSuccess");
             return signupResponseObj;
         }
