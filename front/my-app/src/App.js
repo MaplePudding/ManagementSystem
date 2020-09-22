@@ -37,7 +37,7 @@ function App(props){
 				<div id="outer">
 					<Router>
 						<Redirect to='/home'/>
-						<Route path='/home' render = { props => <HomeComponent identy={identy} userName={userName}/>}/>
+						<Route path='/home' component={HomeComponent}/>
 					</Router>
 				</div>
 			)

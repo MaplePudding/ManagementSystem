@@ -7,7 +7,7 @@ public class UserInfo {
     private String email;
     private String sex;
     private String phoneNumber;
-    private String level;
+    private String grade;
     private String age;
 
     public String getSex() {
@@ -46,12 +46,12 @@ public class UserInfo {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getLevel() {
-        return level;
+    public String getGrade() {
+        return grade;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 
     public void setPassword(String password) {

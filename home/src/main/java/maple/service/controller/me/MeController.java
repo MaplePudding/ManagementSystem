@@ -30,4 +30,22 @@ public class MeController {
             return userInfoList.get(0);
         }
     }
+
+    @RequestMapping(value="/meSubmit", params = {"email", "phoneNumber", "sex", "userName"})
+    @ResponseBody
+    public MeResponseObj updateUserInfo(UserInfo userInfo){
+        ApplicationContext applicationContext = ApplicationBean.getApplicationContext();
+        JdbcTemplate jdbcTemplate = (JdbcTemplate) applicationContext.getBean("quickJdbc");
+        MeResponseObj meResponseObj = new MeResponseObj();
+        System.out.println(userInfo.getUserName());
+        if(userInfo.getEmail().equals("") || userInfo.getPhoneNumber().equals("")){
+            meResponseObj.setMeSubmitRes("SubmitError");
+            return meResponseObj;
+        }
+
+        jdbcTemplate.update("update student set email = ?, phoneNumber = ?, sex = ? where userName = ?", userInfo.getEmail(), userInfo.getPhoneNumber(), userInfo.getSex(), userInfo.getUserName());
+
+        meResponseObj.setMeSubmitRes("SubmitSuccess");
+        return meResponseObj;
+    }
 }
