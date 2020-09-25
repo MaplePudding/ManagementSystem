@@ -9,6 +9,7 @@ public class UserInfo {
     private String phoneNumber;
     private String grade;
     private String age;
+    private String classes;
 
     public String getSex() {
         return sex;
@@ -32,6 +33,14 @@ public class UserInfo {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getClasses() {
+        return classes;
+    }
+
+    public void setClasses(String classes) {
+        this.classes = classes;
     }
 
     public void setEmail(String email) {
@@ -65,4 +74,6 @@ public class UserInfo {
     public void setAge(String age) {
         this.age = age;
     }
+
+
 }

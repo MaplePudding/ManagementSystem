@@ -1,0 +1,190 @@
+#courseCom{
+    width: 100%;
+    height: 100%;
+}
+
+#newClassForm{
+    position: absolute;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #20232A;
+    opacity: 1;
+    z-index: 1;
+}
+
+#classFormInner{
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#classFormInner input{
+    width: 80%;
+    height: 20%;
+    background: transparent;
+    color: #61DAFB;
+    font-size: 1.5em;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #61DAFB;
+}
+
+#submitClassForm{
+    width: 30%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #61DAFB;
+    font-size: 1.5em;
+    background: transparent;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+
+#submitClassForm img{
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+#submitClassForm:hover img{
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(-30%);
+}
+
+.showClassForm{
+    visibility: visible;
+}
+
+.hiddenClassForm{  
+    visibility: hidden;
+}
+
+#closeClassForm{
+    width: 7%;
+    height: 20%;
+    transform: translate(1300%, -500%);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#closeClassForm img{
+    width: 100%;
+}
+
+.classFormErrorMessage{
+    color: red;
+    font-size: 1.2em;
+}
+
+.classFormErrorShow{
+    visibility: visible;
+}
+
+.classFormErrorHidden{
+    visibility: hidden;
+}
+
+#courseTopTitle{
+    height: 15%;
+    width: 100%;
+    position: relative;
+    color: #61DAFB;
+    font-size: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#courseTopTitle > div{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#newClassButton{
+    width: 7%;
+    height: 40%;
+    background: #41B883;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transform: translate(950%, 0%);
+    font-size: 0.6em;
+    z-index: 0;
+}
+
+#newClassButton img{
+    width: 35%;
+}
+
+#newClassButton:hover img{
+    animation: rotateAddImg 1s cubic-bezier(.23,.03,.48,1.02);
+}
+
+@keyframes rotateAddImg{
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(270deg);
+    }
+}
+
+#refreshButton{
+    width: 4%;
+    height: 3%;
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transform: translate(200%, 0%);
+    z-index: 0;
+}
+
+#refreshButton:hover img{
+    transition: transform 2s linear;
+    transform: rotate(720deg);
+}
+
+#refreshButton img{
+    width: 100%;
+}
+
+#classListContainer{
+    width: 100%;
+    height: 85%;
+    align-items: center;
+    background:#282C34;
+    overflow-y: scroll;
+}
+
+#classListContainer::-webkit-scrollbar{
+    display: none;
+}

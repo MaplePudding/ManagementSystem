@@ -26,10 +26,6 @@ public class LoginController {
 
         ApplicationContext applicationContext = ApplicationBean.getApplicationContext();
         JdbcTemplate jdbcTemplate = (JdbcTemplate) applicationContext.getBean("quickJdbc");
-
-        System.out.println(position);
-        System.out.println(userName);
-        System.out.println(password);
         if(position.equals("student")){
             List<UserInfo> userInfoList = jdbcTemplate.query("select * from student where userName = ?", new BeanPropertyRowMapper<UserInfo>(UserInfo.class) ,userName);
             for(UserInfo userInfoItem : userInfoList){
