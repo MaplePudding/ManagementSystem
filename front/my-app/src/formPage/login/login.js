@@ -6,9 +6,9 @@ import userState from '../../userState'
 
 function LoginComponent(props) {
 
-    let userName = "";
-    let password = "";
-    let position = "student";
+    let [userName, setUserName] = useState("");
+    let [password, setPassword] = useState("");
+    let [position, setPosition] = useState("student");
     let loginErrorFlag = false;
     let emptyFlag = false;
     let errorMessageRef = useRef();
@@ -34,15 +34,15 @@ function LoginComponent(props) {
     }
 
     function changeUserName(e){
-        userName = e.target.value;
+        setUserName(e.target.value)
     }
 
     function changePassword(e){
-        password = e.target.value;
+        setPassword(e.target.value)
     }
 
     function changePosition(e){
-        position = e.target.value;
+        setPosition(e.target.value)
     }
 
     return (

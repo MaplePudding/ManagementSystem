@@ -5,10 +5,10 @@ import ErrorMessageCom from './errorMessage';
 
 function SignupComponent(props) {
 
-    let userName = "";
-    let password = "";
+    let [userName, setUserName] = useState("");
+    let [password, setPassword] = useState("");
     let email = "";
-    let position = "student";
+    let [position, setPosition] = useState("student");
     let userNameExistFlag = false;
     let userNameEmptyFlag = false;
     let passwordEmptyFlag = false;
@@ -17,19 +17,18 @@ function SignupComponent(props) {
 
 
     function changeUserName(e){
-        userName = e.target.value;
+        setUserName(e.target.value)
     }
 
     function changePassword(e){
-        password = e.target.value;
+        setPassword(e.target.value)
     }
-
     function changeEmail(e){
         email = e.target.value;
     }
 
     function changePosition(e){
-        position = e.target.value;
+        setPosition(e.target.value)
     }
 
 
