@@ -13,6 +13,7 @@ function SignupComponent(props) {
     let userNameEmptyFlag = false;
     let passwordEmptyFlag = false;
     let errorMessageRef = useRef();
+    let userNameFilter = ["*", "/", "?", ".", ",", "$", "!", "@", "%", "&"];
 
 
 
@@ -33,6 +34,11 @@ function SignupComponent(props) {
 
 
     function sendSignupInfo(){
+
+        for(let i = 0; i < userNameFilter.length; ++i){
+            userName.replace(userNameFilter[i], "");
+        }
+
         Axios.post(`/api/signup?userName=${userName}&password=${password}&email=${email}&position=${position}`).then((res) =>{
             if(res.data.signupResponseRes === 'SignupSuccess'){
                 userNameEmptyFlag = false;

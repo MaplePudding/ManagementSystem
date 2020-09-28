@@ -16,6 +16,19 @@
     z-index: 1;
 }
 
+#searchCoursesForm{
+    position: absolute;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #20232A;
+    opacity: 1;
+    z-index: 1;
+}
+
 #classFormInner{
     position: absolute;
     width: 50%;
@@ -70,6 +83,14 @@
     visibility: hidden;
 }
 
+.showCoursesForm{
+    visibility: visible;
+}
+
+.hiddenCoursesForm{  
+    visibility: hidden;
+}
+
 #closeClassForm{
     width: 7%;
     height: 20%;
@@ -78,6 +99,53 @@
     border: none;
     outline: none;
     cursor: pointer;
+}
+
+#searchOuter{
+    height: 20%;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    align-items: center;
+}
+
+#searchOuter input{
+    height: 30%;
+    width: 65%;
+    color: #61DAFB;
+    background: transparent;
+    font-size: 1.5em;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #61DAFB;
+}
+
+#searchCourses{
+    width: 12%;
+    height: 40%;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#searchCourses img{
+    width: 100%;
+}
+
+#closeCoursesForm{
+    width: 7%;
+    height: 20%;
+    transform: translate(650%, -10%);
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#closeCoursesForm img{
+    width: 100%;
 }
 
 #closeClassForm img{
@@ -134,7 +202,28 @@
     z-index: 0;
 }
 
+#joinCoursesButton{
+    width: 7%;
+    height: 40%;
+    background: #41B883;
+    border: none;
+    outline: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    transform: translate(950%, 0%);
+    font-size: 0.6em;
+    z-index: 0;
+}
+
 #newClassButton img{
+    width: 35%;
+}
+
+#joinCoursesButton img{
     width: 35%;
 }
 
@@ -186,5 +275,33 @@
 }
 
 #classListContainer::-webkit-scrollbar{
+    display: none;
+}
+
+#searchCoursesContent{
+    height: 60%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+#searchCoursesContent::-webkit-scrollbar{
+    display: none;
+}
+
+#coursesListContainer{
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+
+#coursesListContainer::-webkit-scrollbar{
     display: none;
 }

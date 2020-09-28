@@ -1,0 +1,46 @@
+.searchCoursesItemCom{
+    width: 45%;
+    height: 10%;
+    display: flex;
+    color: white;
+    font-size: 1.5em;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #282C34;
+    margin-bottom: 1%;
+    cursor: pointer;
+    transition: transform 0.1s cubic-bezier(.23,.61,.94,.57);
+    animation: coursesItemAni 0.5s forwards ease-out;
+}
+
+@keyframes coursesItemAni{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.searchCoursesItemCom:hover{
+    transition: transform 0.1s cubic-bezier(.23,.61,.94,.57);
+    transform: translateX(-2%);
+}
+
+.searchCoursesItemCom button{
+    width: 25%;
+    height: 80%;
+    background: #41B883;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.searchCoursesItemName{
+    width: 65%;
+    height: 100%;
+}
+

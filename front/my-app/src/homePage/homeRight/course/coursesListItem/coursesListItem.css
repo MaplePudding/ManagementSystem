@@ -1,0 +1,33 @@
+.coursesListItem{
+    width: 40%;
+    height: 10%;
+    background: #20232A;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 1%;
+    transition: 0.2s transform cubic-bezier(.23,.61,.94,.57);
+}
+
+.coursesListItem:hover{
+    transition: 0.2s transform cubic-bezier(.23,.61,.94,.57);
+    transform: translateX(-2%);
+}
+
+.coursesListItem div{
+    width: 70%;
+}
+
+.coursesListItem button{
+    width: 15%;
+    height: 60%;
+    background: red;
+    color: white;
+    font-size: 0.8em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}

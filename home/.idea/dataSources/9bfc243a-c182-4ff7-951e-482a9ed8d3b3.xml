@@ -926,6 +926,8 @@ SELECT|sys.sys_config:null
     <column id="290" parent="285" name="classMember">
       <Position>3</Position>
       <DataType>varchar(400)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;*&apos;</DefaultExpression>
     </column>
     <column id="291" parent="285" name="memberNum">
       <Position>4</Position>
@@ -978,6 +980,8 @@ SELECT|sys.sys_config:null
     <column id="300" parent="286" name="classes">
       <Position>7</Position>
       <DataType>varchar(400)|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;*&apos;</DefaultExpression>
     </column>
     <index id="301" parent="286" name="student_userName_uindex">
       <ColNames>userName</ColNames>
