@@ -1,10 +1,13 @@
 import React from 'react'
+import './studentItem.css'
 
-function StudentItem(props){
+function StudentItemCom(props){
     return(
         <div className="studentItem">
             <div className="studentItemName">{props.userName}</div>
-            <div className="studentSex">{props.sex}</div>
+            <button className="removeStudent">Remove</button>
         </div>
     )
 }
+
+export default StudentItemCom

@@ -57,5 +57,10 @@
 
 .classListContentTable{
     position: absolute;
-    top: 150px;
+    top: 160px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
