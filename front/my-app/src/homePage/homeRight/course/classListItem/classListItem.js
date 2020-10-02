@@ -3,12 +3,15 @@ import Axios from 'axios'
 import './classListItem.css'
 import './studentItem/studentItem.js'
 import extendImg from './img/extend.png'
+import sendImg from './img/send.png'
 import StudentItemCom from './studentItem/studentItem.js'
 
 function ClassListItemCom(props) {
 
     let [heightFlag, setHeightFlag] = useState(false);
     let [studentList, setStudentList] = useState([]);
+    let sendNoticeComFlag = props.sendNoticeFlag;
+    let setSendNoticeComFlag = props.setSendNoticeComFlag;
 
     function removeEmptyStr(arr){
         for(let i = arr.length - 1; i >= 0; --i){
@@ -40,10 +43,10 @@ function ClassListItemCom(props) {
         heightFlag === false ? setHeightFlag(true) : setHeightFlag(false);
     }
 
-
     return (
         <div className={heightFlag ? "classListItemCom classListItemExtend" : "classListItemCom classListItemComShrink"}>
             <img src={extendImg} className={heightFlag ? "extendImg extendImgRotate" : "extendImg"} onClick={() => { changeItemHeight();getClassItemDetail() }} />
+            <img src={sendImg} onClick={props.changeSendNoticeComStatus} className="showNoticeImg"/>
             <div className="classListItemName">
                 {props.className}
             </div>

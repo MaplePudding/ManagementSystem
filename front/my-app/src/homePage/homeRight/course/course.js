@@ -10,6 +10,7 @@ import refreshImg from './img/refresh.png'
 import searchImg from './img/search.png'
 import SearchCoursesItemCom from './searchCoursesItem/searchCoursesItem.js'
 import CoursesListItem from './coursesListItem/coursesListItem.js'
+import SendNoticeCom from './sendNotice/sendNotice.js'
 import './course.css'
 
 function CourseCom() {
@@ -23,6 +24,7 @@ function CourseCom() {
     let [coursesFormFlag, setCoursesFormFlag] = useState(false);
     let [coursesSearchList, setCoursesSearchList] = useState(false);
     let [coursesList, setCoursesList] = useState("");
+    let [sendNoticeComFlag, setSendNoticeComFlag] = useState(false);
     let userName = userState.getUserName();
 
     if (userState.getIdenty() === 'student') {
@@ -36,42 +38,42 @@ function CourseCom() {
         }
 
         function searchCourses() {
-            if(searchContent != ''){
+            if (searchContent != '') {
                 let searchContentFilter = ["*", "/", "?", ".", ",", "$", "!", "@", "%", "&"];
-                
-                for(let i = 0; i < searchContentFilter.length; ++i){
+
+                for (let i = 0; i < searchContentFilter.length; ++i) {
                     searchContent.repeat(searchContentFilter[i], "");
                 }
 
                 Axios.get(`/api/searchCourses?searchContent=${searchContent}&userName=${userName}`).then(res => {
                     let tempCoursesList = [];
-                    for(let i = 0; i < res.data.length; ++i){
-                        tempCoursesList.push(<SearchCoursesItemCom courseName={res.data[i].className} userName={userName} setCoursesSearchList={setCoursesSearchList}/>)
+                    for (let i = 0; i < res.data.length; ++i) {
+                        tempCoursesList.push(<SearchCoursesItemCom courseName={res.data[i].className} userName={userName} setCoursesSearchList={setCoursesSearchList} />)
                     }
                     setCoursesSearchList(tempCoursesList);
                 });
-            }else{
+            } else {
                 setCoursesSearchList([]);
             }
         }
 
         function getCoursesList() {
-            Axios.get(`/api/studentCourses?userName=${userName}`).then(res =>{
+            Axios.get(`/api/studentCourses?userName=${userName}`).then(res => {
                 let tempCoursesList = [];
                 res.data = res.data.split("*");
-                for(let i = res.data.length - 1; i >= 0; --i){
-                    if(res.data[i] === ""){
+                for (let i = res.data.length - 1; i >= 0; --i) {
+                    if (res.data[i] === "") {
                         res.data.splice(i, 1);
                     }
                 }
-                for(let i = 0; i < res.data.length; ++i){
-                    tempCoursesList.push(<CoursesListItem courseName={res.data[i]}/>)
+                for (let i = 0; i < res.data.length; ++i) {
+                    tempCoursesList.push(<CoursesListItem courseName={res.data[i]} />)
                 }
                 setCoursesList(tempCoursesList);
             });
         }
 
-        if(coursesList === ''){
+        if (coursesList === '') {
             getCoursesList();
         }
 
@@ -82,9 +84,9 @@ function CourseCom() {
                         <img src={close} />
                     </button>
                     <div id="searchOuter">
-                        <input type="text" value={searchContent} onChange={e => changeSearchContent(e)} placeholder="Course Name:"/>
+                        <input type="text" value={searchContent} onChange={e => changeSearchContent(e)} placeholder="Course Name:" />
                         <button onClick={searchCourses} id="searchCourses">
-                            <img src={searchImg}/>
+                            <img src={searchImg} />
                         </button>
                     </div>
                     <div id="searchCoursesContent">
@@ -156,11 +158,15 @@ function CourseCom() {
             setClassFormExistsFlag(false);
         }
 
+        function changeSendNoticeComStatus() {
+            sendNoticeComFlag ? setSendNoticeComFlag(false) : setSendNoticeComFlag(true);
+        }
+
         if (classesList.length == 0) {
             let tempList = [];
             Axios.get(`/api/teacherClasses?userName=${userName}`).then(res => {
                 for (let i = 0; i < res.data.length; ++i) {
-                    tempList.push(<ClassListItemCom className={res.data[i].className} memberNum={res.data[i].memberNum} />);
+                    tempList.push(<ClassListItemCom className={res.data[i].className} memberNum={res.data[i].memberNum} changeSendNoticeComStatus={changeSendNoticeComStatus} sendNoticeComFlag={sendNoticeComFlag} setSendNoticeComFlag={setSendNoticeComFlag}/>);
                 }
                 setRenderedList(tempList);
                 res.data.push("back");
@@ -168,9 +174,11 @@ function CourseCom() {
             })
         }
 
+
         return (
 
             <div id="courseCom">
+                <SendNoticeCom sendNoticeComFlag={sendNoticeComFlag} setSendNoticeComFlag={setSendNoticeComFlag} changeSendNoticeComStatus={changeSendNoticeComStatus}/>
                 <div id="newClassForm" className={showClassFormFlag === true ? "showClassForm" : "hiddenClassForm"}>
                     <div id="classFormInner">
                         <button onClick={changeClassFormStatus} id="closeClassForm">
