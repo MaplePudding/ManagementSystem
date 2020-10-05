@@ -46,7 +46,7 @@ function ClassListItemCom(props) {
     return (
         <div className={heightFlag ? "classListItemCom classListItemExtend" : "classListItemCom classListItemComShrink"}>
             <img src={extendImg} className={heightFlag ? "extendImg extendImgRotate" : "extendImg"} onClick={() => { changeItemHeight();getClassItemDetail() }} />
-            <img src={sendImg} onClick={props.changeSendNoticeComStatus} className="showNoticeImg"/>
+            <img src={sendImg} onClick={ () => {props.changeSendNoticeComStatus(); props.setNoticeCourseName(props.className)}} className="showNoticeImg"/>
             <div className="classListItemName">
                 {props.className}
             </div>

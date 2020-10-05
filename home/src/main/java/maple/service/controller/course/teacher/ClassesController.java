@@ -9,7 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -57,5 +63,36 @@ public class ClassesController {
             return classItemList.get(0).getClassMember();
         }
         return "error";
+    }
+
+    @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
+    @ResponseBody
+    public String receiveNotice(MultipartFile file, String userName, String courseName, String time){
+
+        System.out.println(file.getOriginalFilename());
+
+        time = time.replace(":", "-");
+        String fileName = time + " ^ " + file.getOriginalFilename();
+
+        File folder = new File("D:\\MyCode\\ManagementSystem\\home\\src\\main\\resources\\notice\\" + courseName);
+        if(!folder.exists() && !folder.isDirectory()){
+            folder.mkdir();
+        }
+        File writeFile = new File("D:\\MyCode\\ManagementSystem\\home\\src\\main\\resources\\notice\\" + courseName + "\\" + fileName);
+        if(!writeFile.exists()){
+            try {
+                writeFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            file.transferTo(writeFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "hello";
     }
 }

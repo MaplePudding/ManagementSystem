@@ -25,6 +25,7 @@ function CourseCom() {
     let [coursesSearchList, setCoursesSearchList] = useState(false);
     let [coursesList, setCoursesList] = useState("");
     let [sendNoticeComFlag, setSendNoticeComFlag] = useState(false);
+    let [noticeCourseName, setNoticeCourseName] = useState("");
     let userName = userState.getUserName();
 
     if (userState.getIdenty() === 'student') {
@@ -166,7 +167,7 @@ function CourseCom() {
             let tempList = [];
             Axios.get(`/api/teacherClasses?userName=${userName}`).then(res => {
                 for (let i = 0; i < res.data.length; ++i) {
-                    tempList.push(<ClassListItemCom className={res.data[i].className} memberNum={res.data[i].memberNum} changeSendNoticeComStatus={changeSendNoticeComStatus} sendNoticeComFlag={sendNoticeComFlag} setSendNoticeComFlag={setSendNoticeComFlag}/>);
+                    tempList.push(<ClassListItemCom className={res.data[i].className} memberNum={res.data[i].memberNum} changeSendNoticeComStatus={changeSendNoticeComStatus} sendNoticeComFlag={sendNoticeComFlag} setSendNoticeComFlag={setSendNoticeComFlag} setNoticeCourseName={setNoticeCourseName}/>);
                 }
                 setRenderedList(tempList);
                 res.data.push("back");
@@ -178,7 +179,7 @@ function CourseCom() {
         return (
 
             <div id="courseCom">
-                <SendNoticeCom sendNoticeComFlag={sendNoticeComFlag} setSendNoticeComFlag={setSendNoticeComFlag} changeSendNoticeComStatus={changeSendNoticeComStatus}/>
+                <SendNoticeCom sendNoticeComFlag={sendNoticeComFlag} setSendNoticeComFlag={setSendNoticeComFlag} changeSendNoticeComStatus={changeSendNoticeComStatus} noticeCourseName={noticeCourseName}/>
                 <div id="newClassForm" className={showClassFormFlag === true ? "showClassForm" : "hiddenClassForm"}>
                     <div id="classFormInner">
                         <button onClick={changeClassFormStatus} id="closeClassForm">
